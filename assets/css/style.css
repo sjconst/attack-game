@@ -1,0 +1,137 @@
+/* Color Palette
+    Blue #7FCAAC
+    Yellow #F3BF2A
+    Brown #92623B
+    Gray #383838
+ 
+*/
+
+
+/* GLobal styles
+--------------------*/
+
+body {
+    background-image: url('../images/oranges.jpg'); /* Photo by Toa Heftiba on Unsplash */
+    background-repeat: repeat;  
+    background-size: cover;
+    color: #383838;   
+    font-family: 'Beth Ellen', cursive;
+    font-size: 0.6em; 
+ }
+
+
+h1 {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size:  1em;
+}
+
+.background {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Main body styles
+--------------------*/
+.row {
+    padding-left: 15px;
+}
+img {
+    /* max-width: 100%;  */
+    width: 40px;
+    height: auto;
+}
+
+.image-tag {  
+    color: #383838;    
+}
+
+.image-container {    
+    width: 30%;
+    margin: 2px;
+}
+
+.HP, .AP, .CAP {
+    text-align: center;   
+    padding-left: 5px;
+}
+
+ .activePlayer {
+     background-color: rgba(127, 202, 172, 0.3);
+} 
+
+.enemy {
+background-color: rgba(167, 86, 20, 0.3);
+}
+
+.enemy-chosen {
+    background-color: rgba(167, 86, 20, 0.3);   
+}
+
+.btn-new {
+    font-size: 2em;   
+    font-family: 'Permanent Marker', cursive;
+}
+
+#popup {
+    width: 40%;
+    background-color: #7FCAAC;
+    margin-left: 30%; 
+    margin-top: 30px; 
+    visibility: hidden;     
+}
+
+.popup-content {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+#ready {
+    width: 40%;
+    background-color: #383838;
+    color: whitesmoke;    
+    margin-left: 30%; 
+    margin-top: 30px; 
+    visibility: hidden;     
+}
+
+#ready p {
+    padding-top: 5%;
+}
+
+#attackZone {
+    margin-top: 20%;    
+}
+
+#attackZone .col {
+    padding-right: 0px;
+    padding-left: 0px;
+    width: 90%;
+}
+
+#restZone .col {
+    width: 60%;
+}
+
+
+/* Footer styles
+--------------------*/
+footer {
+    background: #666666;
+    border-top: 8px solid #7FCAAC;
+    color: #ffffff;
+    font-size: 0.5em;
+    text-align: center;
+    height: 5%;
+    padding-bottom: 5px;
+}
+
+
+/* Credits
+/* --------------------*/
+/* orange: Photo by Alice Pasqual on Unsplash
+*/ 

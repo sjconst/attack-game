@@ -4,9 +4,9 @@
 <head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Word Game</title>
+    <title>Attack Game</title>
     <!--// google fonts and font awesome stylesheet-->
-    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Playfair+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Beth+Ellen|Permanent+Marker|Roboto+Condensed&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <!--// bootstrap stylesheet-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -14,23 +14,110 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body >
+<body class="d-flex flex-column h-100">
+    <div class="background">
     <!-- // Header -->
-    <header class="container">
-        <div class="row">
-            <h1 class="col-6">Title</h1>           
-        </div>
-    </header>
+        <header class="container">
+            <div class="row">
+                <h1 class="col">Fruit attack</h1>           
+            </div>
+        </header>
 
-    <!-- // Main section -->
-    <main> 
-        <section class="container">
-            <div class="row ">           
-                <div class="col"></div>  
-                <div class="col"></div>                   
-            </div>               
-        </section>      
-    </main>
+        <!-- // Main section -->
+        <main class="flex-shrink-0 container "> 
+            <h2>Selection Zone</h2>    
+            <section class="row" id="allFruits">  
+                                    
+                    <div class="col image-container choice">
+                            <img src="assets/images/IMG1.png" alt="apple cartoon" class="img-fluid row"/>                       
+                           <div class="row image-tag"> 
+                                <div class="col-9">health points:</div><div class="HP col-1" id="apple-HP">0</div>
+                           </div>
+                           <div class="row">
+                                <div class="col-9">attack power:</div><div class="AP col-1" id="apple-AP">0</div>
+                           </div>
+                           <div class="row">
+                                <div class="col-9">counter attack power:</div><div class="CAP col-1" id="apple-CAP">0</div>
+                           </div>  
+                    </div>  
+                    <div class="col image-container choice">
+                        <img src="assets/images/IMG2.png" alt="watermelon cartoon" class="img-fluid row"/>
+                        <div class="row image-tag"> 
+                                <div class="col-9">health points:</div><div class="HP col-2" id="water-HP">0</div>
+                           </div>
+                           <div class="row">
+                                <div class="col-9">attack power:</div><div class="AP col-2" id="water-AP">0</div>
+                           </div>
+                           <div class="row">
+                                <div class="col-9">counter attack power:</div><div class="CAP col-2" id="water-CAP">0</div>
+                           </div>  
+                    </div> 
+                    <div class="col image-container choice"><img src="assets/images/IMG3.png" alt="grape cartoon" class="img-fluid row"/>
+                        <div class="row image-tag"> 
+                                <div class="col-9">health points:</div><div class="HP col-2" id="grape-HP">0</div>
+                           </div>
+                           <div class="row">
+                                <div class="col-9">attack power:</div><div class="AP col-2" id="grape-AP">0</div>
+                           </div>
+                           <div class="row">
+                                <div class="col-9">counter attack power:</div><div class="CAP col-2" id="grape-CAP">0</div>
+                           </div>  
+                    </div> 
+                    <div class="col image-container choice"><img src="assets/images/IMG4.png" alt="lemon cartoon" class="img-fluid row"/>
+                        <div class="row image-tag"> 
+                                <div class="col-9">health points:</div><div class="HP col-2" id="lemon-HP">0</div>
+                           </div>
+                           <div class="row">
+                                <div class="col-9">attack power:</div><div class="AP col-2" id="lemon-AP">0</div>
+                           </div>
+                           <div class="row">
+                                <div class="col-9">counter attack power:</div><div class="CAP col-2" id="lemon-CAP">0</div>
+                           </div>  
+                    </div>                    
+                              
+            </section> 
+
+                <section id="popup" class="popup-overlay"> 
+                    <div class="popup-content"> 
+                        <i class="fas fa-hand-point-up"></i>                       
+                        <p> Select an enemy to battle.</p>  
+                    </div>
+                </section>
+
+               
+
+            <section class="container" id="attackZone">
+                    <h2>Attack Zone</h2> 
+                <div class="row" >
+                    <div class="col">
+                        <div id="left-well">
+                        </div>                        
+                    </div>
+                    <div class="col">
+                            <div id="right-well">
+                            </div>                            
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <button class="btn-new col-xs-6"><i class="ion-ios-plus-outline"></i>Attack</button>  
+                </div>  
+            </section>   
+            
+            <section id="ready" class="popup-overlay"> 
+                    <div class="popup-content">                                                 
+                        <p> Ready to battle! Click the attack button to fire at your opponent.</p> 
+                    </div>
+            </section>
+
+            <section class="container" >
+                <h2>Rest Zone</h2> 
+                <div class="col">
+                    <div id="restZone"></div>    
+                </div>
+            </section>
+
+        </main>
+    </div>
 
     <!-- // Footer -->
     <footer class="mt-auto">
