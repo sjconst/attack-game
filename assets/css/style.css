@@ -42,7 +42,7 @@ h2 {
 }
 img {
     /* max-width: 100%;  */
-    width: 40px;
+    width: 70px;
     height: auto;
 }
 
@@ -57,7 +57,7 @@ img {
 
 .HP, .AP, .CAP {
     text-align: center;   
-    padding-left: 5px;
+    padding-left: 5px;    
 }
 
  .activePlayer {
