@@ -15,117 +15,115 @@
 </head>
 
 <body class="d-flex flex-column h-100">
-    <div class="background">
-    <!-- // Header -->
-        <header class="container">
-            <div class="row">
-                <h1 class="col">Fruit attack</h1>           
-            </div>
-        </header>
+  
+<!-- // Header -->
+    <header class="container">
+        <div class="row">
+            <h1 class="col">Fruit attack</h1>           
+        </div>
+    </header>
 
-    <!-- // Main section -->
-    <main class="flex-shrink-0 container "> 
-        <h2>Selection Zone</h2>    
-        <section class="row" id="allFruits">  
-                                
-                <div class="col image-container choice">
-                        <img src="assets/images/IMG1.png" alt="apple cartoon" class="img-fluid row"/>                       
-                         <div class="row image-tag"> 
-                            <div class="col-9">health points:</div><div class="HP col-1" id="apple-HP">0</div>
-                        </div>
-                         <div class="row">
-                            <div class="col-9 AP-text">attack power:</div><div class="AP col-1" id="apple-AP">0</div>
-                        </div>
-                        <!-- <div class="row CAProw">
-                            <div class="col-9">counter attack power:</div><div class="CAP col-1" id="apple-CAP">0</div>
-                        </div>   -->
-                </div>  
-                <div class="col image-container choice">
-                    <img src="assets/images/IMG2.png" alt="watermelon cartoon" class="img-fluid row"/>
-                     <div class="row image-tag"> 
-                            <div class="col-9">health points:</div><div class="HP col-2" id="water-HP">0</div>
-                        </div> 
+<!-- // Main section -->
+<main class="flex-shrink-0 container "> 
+    <h2>Selection Zone</h2>    
+    <section class="row" id="allFruits">  
+            <div class="col image-container choice">
+                    <img src="assets/images/IMG1.png" alt="apple cartoon" class="img-fluid row"/>                       
+                        <div class="row image-tag"> 
+                        <div class="col-9">health points:</div><div class="HP col-1" id="apple-HP">0</div>
+                    </div>
                         <div class="row">
-                            <div class="col-9 AP-text">attack power:</div><div class="AP col-2" id="water-AP">0</div>
-                        </div>
-                        <!-- <div class="CAProw">
-                            <div class="col-9">counter attack power:</div><div class="CAP col-2" id="water-CAP">0</div>
-                        </div>   -->
-                </div> 
-                <div class="col image-container choice"><img src="assets/images/IMG3.png" alt="grape cartoon" class="img-fluid row"/>
-                     <div class="row image-tag"> 
-                            <div class="col-9">health points:</div><div class="HP col-2" id="grape-HP">0</div>
-                        </div>
-                         <div class="row">
-                            <div class="col-9 AP-text">attack power:</div><div class="AP col-2" id="grape-AP">0</div>
-                        </div>
-                        <!-- <div class="CAProw">
-                            <div class="col-9">counter attack power:</div><div class="CAP col-2" id="grape-CAP">0</div>
-                        </div>   -->
-                </div> 
-                <div class="col image-container choice"><img src="assets/images/IMG4.png" alt="lemon cartoon" class="img-fluid row"/>
-                     <div class="row image-tag"> 
-                            <div class="col-9">health points:</div><div class="HP col-2" id="lemon-HP">0</div>
-                        </div>
-                         <div class="row">
-                            <div class="col-9 AP-text">attack power:</div><div class="AP col-2" id="lemon-AP">0</div>
-                        </div>
-                        <!-- <div class="CAProw">
-                            <div class="col-9">counter attack power:</div><div class="CAP col-2" id="lemon-CAP">0</div>
-                        </div>   -->
-                </div>                    
-                            
-        </section> 
-
-            <section id="popup" class="popup-overlay"> 
-                <div class="popup-content"> 
-                    <i class="fas fa-hand-point-up"></i>                       
-                    <p> Select an enemy to battle.</p>  
-                </div>
-            </section>               
-
-        <section class="container" id="attackZone">
-                <h2>Attack Zone</h2> 
-            <div class="row" >
-                <div class="col">
-                    <div id="left-well">
-                    </div>                        
-                </div>
-                <div class="col">
-                        <div id="right-well">
-                        </div>                            
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <button class="btn-new col-xs-6"><i class="ion-ios-plus-outline"></i>Attack</button>  
+                        <div class="col-9 AP-text">attack power:</div><div class="AP col-1" id="apple-AP">0</div>
+                    </div>
+                    <!-- <div class="row CAProw">
+                        <div class="col-9">counter attack power:</div><div class="CAP col-1" id="apple-CAP">0</div>
+                    </div>   -->
             </div>  
-        </section>   
-        
-        <section id="ready" class="popup-overlay"> 
-                <div class="popup-content">                                                 
-                    <p> Ready to battle! Click the attack button to fire at your opponent.</p> 
-                </div>
-        </section>
+            <div class="col image-container choice">
+                <img src="assets/images/IMG2.png" alt="watermelon cartoon" class="img-fluid row"/>
+                    <div class="row image-tag"> 
+                        <div class="col-9">health points:</div><div class="HP col-2" id="water-HP">0</div>
+                    </div> 
+                    <div class="row">
+                        <div class="col-9 AP-text">attack power:</div><div class="AP col-2" id="water-AP">0</div>
+                    </div>
+                    <!-- <div class="CAProw">
+                        <div class="col-9">counter attack power:</div><div class="CAP col-2" id="water-CAP">0</div>
+                    </div>   -->
+            </div> 
+            <div class="col image-container choice"><img src="assets/images/IMG3.png" alt="grape cartoon" class="img-fluid row"/>
+                    <div class="row image-tag"> 
+                        <div class="col-9">health points:</div><div class="HP col-2" id="grape-HP">0</div>
+                    </div>
+                        <div class="row">
+                        <div class="col-9 AP-text">attack power:</div><div class="AP col-2" id="grape-AP">0</div>
+                    </div>
+                    <!-- <div class="CAProw">
+                        <div class="col-9">counter attack power:</div><div class="CAP col-2" id="grape-CAP">0</div>
+                    </div>   -->
+            </div> 
+            <div class="col image-container choice"><img src="assets/images/IMG4.png" alt="lemon cartoon" class="img-fluid row"/>
+                    <div class="row image-tag"> 
+                        <div class="col-8">health points:</div><div class="HP col-2" id="lemon-HP">0</div>
+                    </div>
+                        <div class="row">
+                        <div class="col-8 AP-text">attack power:</div><div class="AP col-2" id="lemon-AP">0</div>
+                    </div>
+                    <!-- <div class="CAProw">
+                        <div class="col-9">counter attack power:</div><div class="CAP col-2" id="lemon-CAP">0</div>
+                    </div>   -->
+            </div>                
+    </section> 
 
-        <section class="container" >
-            <h2>Rest Zone</h2> 
-            <div class="col">
-                <div id="restZone"></div>    
+        <section id="popup" class="popup-overlay"> 
+            <div class="popup-content"> 
+                <i class="fas fa-hand-point-up"></i>                       
+                <p> Select an enemy to battle.</p>  
             </div>
-        </section>
+        </section>               
 
-    </main>
-</div>
+    <section class="container" id="attackZone">
+            <h2>Attack Zone</h2> 
+        <div class="row" >
+            <div class="col">
+                <div id="left-well">
+                </div>                        
+            </div>
+            <div class="col">
+                    <div id="right-well">
+                    </div>                            
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <button class="btn-new col-xs-6"><i class="ion-ios-plus-outline"></i>Attack</button>  
+        </div>  
+    </section>   
+    
+    <section id="ready" class="popup-overlay"> 
+            <div class="popup-content">   
+                <i class="fas fa-hand-point-up"></i>                                                 
+                <p> Ready to battle! Click the attack button to fire at your opponent.</p> 
+            </div>
+    </section>
 
-    <!-- // Footer -->
-    <footer class="mt-auto">
-        <p>Copyright &copy</p>
-    </footer>
+    <section class="container" >
+        <h2>Rest Zone</h2> 
+        <div class="col">
+            <div id="restZone"></div>    
+        </div>
+    </section>
 
+</main>
+
+<!-- // Footer -->
+<footer class="mt-auto">
+    <p>Copyright &copy</p>
+</footer>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="assets/javascript/game.js"></script>
+
 </body>
 </html>
