@@ -71,8 +71,8 @@ img {
     font-family: 'Permanent Marker', cursive;
 }
 
-#popup {
-    width: 40%;
+.popup-overlay {
+    width: 20%;
     background-color: #7FCAAC;
     margin-left: 30%; 
     margin-top: 20px; 
@@ -83,19 +83,6 @@ img {
 .popup-content {
     text-align: center;
     padding-bottom: 10px;
-}
-
-#ready {
-    width: 40%;
-    background-color: #383838;
-    color: whitesmoke;    
-    margin-left: 25%;    
-    visibility: hidden;     
-    position: absolute;
-}
-
-#ready p {
-    padding-top: 5%;
 }
 
 #attackZone .col {

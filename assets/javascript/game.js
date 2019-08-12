@@ -37,42 +37,40 @@
 
 $(document).ready(function() {
 
-var healthPoints, attackPower, counterPoints, incrementor; 
+var incrementor, gamePlaying, selection, enemyNo; 
 
-var DOM = {
-    $choice: $(".choice"),
+var DOM = {   
     $imgCont: $(".image-container"),
-    $popup: $("#popup"),
+    $enemyPop: $("#enemyPop"),
+    $playerPop: $("#playerPop"),
     $ready: $("#ready")
 };
 
 var DOMapple = {
     $HP: $("#apple-HP"),
     $AP: $("#apple-AP"),
-    $CAP: $("#apple-CAP"),
 };
 
 var DOMwater = {
     $HP: $("#water-HP"),
     $AP: $("#water-AP"),
-    $CAP: $("#water-CAP"),
 };
 
 var DOMgrape = {
     $HP: $("#grape-HP"),
     $AP: $("#grape-AP"),
-    $CAP: $("#grape-CAP"),
 };
 
 var DOMlemon = {
     $HP: $("#lemon-HP"),
     $AP: $("#lemon-AP"),
-    $CAP: $("#lemon-CAP"),
 };
 
 var setup = {
     init: function() {
             gamePlaying = false;
+            selection = false;    
+            enemyNo = 1;                  
             appleHP = this.getRandomHP();
             appleAP = this.getRandomAP();
             waterHP = this.getRandomHP();
@@ -90,7 +88,7 @@ var setup = {
             DOMlemon.$HP.text(lemonHP);   
             DOMlemon.$AP.text(lemonAP);  
             incrementor = [];  
-            DOM.$imgCont.removeClass("activePlayer").removeClass("enemy-chosen").removeClass("enemy").addClass("choice").appendTo("#allFruits");
+            DOM.$imgCont.removeClass("activePlayer").removeClass("enemy-chosen").removeClass("enemy").appendTo("#allFruits");           
             //add popup that bounces up and down until user makes selection
             },
     getRandomHP: function() {
@@ -106,26 +104,51 @@ var setup = {
 }
   
 DOM.$imgCont.on("click", function(){
-    if($(this).hasClass("choice")){
-        DOM.$imgCont.removeClass("choice");       
+    if(!selection){            
         $("#attackZone").css("background-color", "rgba(255, 255, 255, 0.5)");
         $(this).appendTo("#left-well");
         $(this).addClass("activePlayer");
-        DOM.$imgCont.not(this).addClass("enemy");
-        DOM.$popup.css({"visibility": "visible"});   
+        DOM.$imgCont.not(this).addClass("enemy");  
+        DOM.$playerPop.css({"visibility": "hidden"}); 
+        selection = true;       
     }
 });
-    
+// add "rules button" with rules on hover
+
+//need to change this four mouse events to function
+    DOM.$imgCont.on("mouseenter", function(){    
+        if (!selection) {
+            DOM.$playerPop.css({"visibility": "visible"});    
+        };    
+    });
+
+    DOM.$imgCont.on("mouseleave", function(){    
+        if (!selection) {
+            DOM.$playerPop.css({"visibility": "hidden"}); 
+        }       
+    });
+
+    DOM.$imgCont.on("mouseenter", function(){    
+        if (!gamePlaying) {
+            DOM.$enemyPop.css({"visibility": "visible"});    
+        };    
+    });
+
+    DOM.$imgCont.on("mouseleave", function(){    
+        if (!gamePlaying) {
+            DOM.$enemyPop.css({"visibility": "hidden"}); 
+    }       
+    });
+        
 //close popup, //on click of img with enemy class, that img gets enemy-chosen class, alert "ready to attack!"
 DOM.$imgCont.on("click", function(){
     if(!gamePlaying && $(this).hasClass("enemy")){        
-        DOM.$popup.css({"visibility": "hidden"});
+        DOM.$enemyPop.css({"visibility": "hidden"});
         $(this).appendTo("#right-well");
         $(this).addClass("enemy-chosen");
         var APtext = $(".enemy-chosen").find(".AP-text");
         APtext.text("counter attack power");
-        $(this).removeClass("enemy");        
-        DOM.$ready.css({"visibility": "visible"}); 
+        $(this).removeClass("enemy");   
         gamePlaying = true;        
     } 
 });
@@ -133,11 +156,11 @@ DOM.$imgCont.on("click", function(){
 // * Whenever the player clicks `attack`, their character damages the defender. The opponent will lose `HP` (health points). 
 $(".btn-new").on("click", function(){
     if (gamePlaying) {
-        DOM.$ready.css({"visibility": "hidden"});
-        var enemyHP = $(".enemy-chosen").find(".HP");
-        var enemyAP = $(".enemy-chosen").find(".AP");
-        var playerHP = $(".activePlayer").find(".HP");
-        var playerAP = $(".activePlayer").find(".AP"); 
+       
+        var enemyHP = $(".enemy-chosen .HP");
+        var enemyAP = $(".enemy-chosen .AP");
+        var playerHP = $(".activePlayer .HP");
+        var playerAP = $(".activePlayer .AP"); 
         var enemyHPCont =  enemyHP.text();
         var enemyAPCont = enemyAP.text(); 
         var playerHPCont = playerHP.text();
@@ -151,8 +174,7 @@ $(".btn-new").on("click", function(){
             //player loses HP
             playerHP.text(playerHPCont - enemyAPCont);
             //player AP increases by base
-            incrementor.push(playerAPCont);
-            console.log(incrementor);
+            incrementor.push(playerAPCont);         
             playerAP.text(+playerAPCont + +incrementor[0]);
 
         } else if(playerHPCont <= 0) {
@@ -160,12 +182,16 @@ $(".btn-new").on("click", function(){
             setup.init();
         } else {
             $enemyChosen.appendTo("#restZone");
-            $enemyChosen.removeClass("enemy-chosen");
-            DOM.$popup.css({"visibility": "visible"});  
+            $enemyChosen.removeClass("enemy-chosen");  
+            enemyNo++ ;
             gamePlaying = false;
+            if ($(".HP").length === enemyNo){
+                alert("you won!"); //change to popup
+                setup.init();
+            };                       
         }
     }
-})
+});
 
 setup.init();
 
