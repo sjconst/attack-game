@@ -30,9 +30,7 @@ h2 {
 
 /* Main body styles
 --------------------*/
-.row {
-    margin-right: 0px;
-}
+
 img {
     /* max-width: 100%;  */
     width: 70px;
@@ -54,7 +52,7 @@ img {
     font-family: 'Permanent Marker', cursive;    
 }
 
- .activePlayer {
+.activePlayer {
      background-color: rgba(127, 202, 172, 0.3);
 } 
 
@@ -66,9 +64,28 @@ img {
     background-color: rgba(167, 86, 20, 0.3);   
 }
 
-.btn-new {
-    font-size: 2em;   
+.attack {
+    font-size: 2em;       
+}
+.play, .attack {
     font-family: 'Permanent Marker', cursive;
+}
+
+.play {
+    height: 5%;
+    margin-top: 5%;
+    font-size: 0.75em;
+}
+
+#play {
+    position: absolute;
+    background: rgba(127, 202, 172, 0.90);
+    z-index: 2;
+    width: 70%;
+    left: 15%;
+    text-align: center;
+    padding-top: 15px;
+    visibility: hidden;
 }
 
 .popup-overlay {
@@ -85,14 +102,37 @@ img {
     padding-bottom: 10px;
 }
 
+#attackZone {
+    background-color: #F3BF2A;
+    margin-top: 5px;
+    padding-bottom: 10px;
+}
+
+.selectionZone {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
 #attackZone .col {
-    padding-right: 0px;
-    padding-left: 0px;
-    width: 90%;
+    padding-right: 0px;    
+    width: 90%;    
 }
 
 #restZone .col {
-    width: 60%;
+    width: 60%;    
+}
+
+#restZone {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+#winlose {
+    color: #7FCAAC;
+    font-size: 5em;
+    font-family: 'Beth Ellen', cursive;   
+    position: absolute;
+    right: 30%;
+    left: 30%;
+    z-index: 2;
 }
 
 /* Footer styles
@@ -107,3 +147,17 @@ footer {
     padding-bottom: 5px;
 }
 
+/* larger screens
+--------------------*/
+
+@media only screen and (min-width: 1400px) {
+    .popup-overlay {
+        margin-left: 20%; 
+    }
+    body {
+        font-size: 1em;
+    }
+    #winlose {
+        left: 40%;
+    }
+}

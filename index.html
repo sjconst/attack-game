@@ -19,14 +19,19 @@
 <!-- // Header -->
     <header class="container">
         <div class="row">
-            <h1 class="col">Fruit attack</h1>           
-        </div>
+            <h1 class="col">Fruit attack</h1>      
+            <button class="btn-new col-4 play"><i class="ion-ios-plus-outline"></i>How to play</button>       
+        </div>       
+        <div class="popup-content" id="play">                                        
+            <p> Select a player then select an enemy to battle. Attack your opponent by clicking on the attack button, and watch its health points drop by your attack power. <br>Watch out! Your opponent immediately counter attacks. Your attack power increases each round, so fight wisely!<br> Once you've defeated an opponent, select a new adversary and let the battling continue.</p>  
+        </div>                
     </header>
 
 <!-- // Main section -->
-<main class="flex-shrink-0 container "> 
+<main class="flex-shrink-0 container ">     
+    <div id="winlose"></div>
     <h2>Selection Zone</h2>    
-    <section class="row" id="allFruits">  
+    <section class="row selectionZone" id="allFruits">  
             <div class="col image-container choice">
                     <img src="assets/images/IMG1.png" alt="apple cartoon" class="img-fluid row"/>                       
                         <div class="row image-tag"> 
@@ -90,7 +95,7 @@
             </div>
         </div>
         <div class="row justify-content-center">
-            <button class="btn-new col-xs-6"><i class="ion-ios-plus-outline"></i>Attack</button>  
+            <button class="btn-new col-xs-6 attack"><i class="ion-ios-plus-outline"></i>Attack</button>  
         </div>  
     </section>     
 
