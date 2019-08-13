@@ -10,7 +10,7 @@
 /* GLobal styles
 --------------------*/
 
-body {
+body{
     background-image: url("../images/batthern.png");
     color: #383838;        
     font-size: 0.75em; 
@@ -31,9 +31,8 @@ h2 {
 /* Main body styles
 --------------------*/
 
-img {
-    /* max-width: 100%;  */
-    width: 70px;
+img {    
+    width: 60px;
     height: auto;
 }
 
@@ -42,7 +41,7 @@ img {
 }
 
 .image-container {    
-    width: 30%;
+    /* width: 20%; */
     margin: 2px;
 }
 

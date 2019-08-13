@@ -1,44 +1,8 @@
-// When the game starts, the player will choose a character by clicking on the fighter's picture. The player will fight as that character for the rest of the game.
-
-// * The player must then defeat all of the remaining fighters. Enemies should be moved to a different area of the screen.
-
-// * The player chooses an opponent by clicking on an enemy's picture.
-
-// * Once the player selects an opponent, that enemy is moved to a `defender area`.
-
-// * The player will now be able to click the `attack` button.
-//   * Whenever the player clicks `attack`, their character damages the defender. The opponent will lose `HP` (health points). These points are displayed at the bottom of the defender's picture. 
-//   * The opponent character will instantly counter the attack. When that happens, the player's character will lose some of their `HP`. These points are shown at the bottom of the player character's picture.
-
-// 3. The player will keep hitting the attack button in an effort to defeat their opponent.
-
-// * When the defender's `HP` is reduced to zero or below, remove the enemy from the `defender area`. The player character can now choose a new opponent.
-
-// 4. The player wins the game by defeating all enemy characters. The player loses the game the game if their character's `HP` falls to zero or below.
-
-// ##### Option 2 Game design notes
-
-// * Each character in the game has 3 attributes: `Health Points`, `Attack Power` and `Counter Attack Power`.
-
-// * Each time the player attacks, their character's Attack Power increases by its base Attack Power. 
-// * For example, if the base Attack Power is 6, each attack will increase the Attack Power by 6 (12, 18, 24, 30 and so on).
-// * The enemy character only has `Counter Attack Power`. 
-
-// * Unlike the player's `Attack Points`, `Counter Attack Power` never changes.
-
-// * The `Health Points`, `Attack Power` and `Counter Attack Power` of each character must differ.
-
-// * No characters in the game can heal or recover Health Points. 
-
-// * A winning player must pick their characters wisely by first fighting an enemy with low `Counter Attack Power`. This will allow them to grind `Attack Power` and to take on enemies before they lose all of their `Health Points`. Healing options would mess with this dynamic.
-
-// * Your players should be able to win and lose the game no matter what character they choose. The challenge should come from picking the right enemies, not choosing the strongest player.
-
 
 $(document).ready(function() {
 
 //Global variables, setup objects
-var incrementor, gamePlaying, selection, enemyNo; 
+var incrementor, gamePlaying, selection, enemyNo, enemyHPCont, enemyAPCont, playerAPCont, playerHPCont; 
 
 var DOM = {   
     $imgCont: $(".image-container"),
@@ -46,7 +10,7 @@ var DOM = {
     $playerPop: $("#playerPop"),
     $ready: $("#ready"),
     $playBtn: $(".play"),
-    $playPop: $("#play")
+    $playPop: $("#play"),  
 };
 
 var setup = {
@@ -55,10 +19,11 @@ var setup = {
             selection = false;    
             enemyNo = 1;           
             $(".HP").each( function() {$(this).text(setup.getRandom(5, 20))});    
-            $(".AP").each( function() {$(this).text(setup.getRandom(1, 5))});             
+            $(".AP").each( function() {$(this).text(setup.getRandom(1, 5))});                  
             incrementor = [];  
             DOM.$imgCont.removeClass("activePlayer").removeClass("enemy-chosen").removeClass("enemy").appendTo("#allFruits"); 
             $("#winlose").empty(); 
+            $(".attackText").text("attack");
             },
     delayInit:  function() { 
                 setTimeout(function(){
@@ -70,7 +35,13 @@ var setup = {
                 max = Math.floor(y);
                 return Math.floor(Math.random() * (max - min + 1)) + min; 
                 },
-}
+    getValues: function() {
+                enemyHPCont =  parseInt($(".enemy-chosen .HP").text());
+                enemyAPCont = parseInt($(".enemy-chosen .AP").text()); 
+                playerHPCont = parseInt($(".activePlayer .HP").text());
+                playerAPCont = parseInt($(".activePlayer .AP").text()); 
+                }
+};
   
 //Instruction popups
     DOM.$imgCont.on("mouseenter", function(){    
@@ -108,57 +79,54 @@ var setup = {
             DOM.$playerPop.css({"visibility": "hidden"}); 
             selection = true;       
             }
-        });
-    
+        });    
 
-    //Choose enemy, move enemy to attack zone, change attack power to counter attack power
+    //Choose enemy, move enemy to attack zone, change attack power to counter attack power, set values for battling variables
     DOM.$imgCont.on("click", function(){
         if(!gamePlaying && $(this).hasClass("enemy")){        
             DOM.$enemyPop.css({"visibility": "hidden"});
             $(this).appendTo("#right-well");
             $(this).addClass("enemy-chosen");
-            var APtext = $(".enemy-chosen").find(".AP-text");
-            APtext.text("counter attack power");
             $(this).removeClass("enemy");   
-            gamePlaying = true;        
+            $(".enemy-chosen .attackText").text("counter attack");
+            gamePlaying = true;   
+            setup.getValues();         
         } 
     });
 
     // * Whenever the player clicks `attack`, the game begins. 
     $(".btn-new").on("click", function(){
-        if (gamePlaying) {       
-            var enemyHP = $(".enemy-chosen .HP");
-            var enemyAP = $(".enemy-chosen .AP");
-            var playerHP = $(".activePlayer .HP");
-            var playerAP = $(".activePlayer .AP"); 
-            var enemyHPCont =  enemyHP.text();
-            var enemyAPCont = enemyAP.text(); 
-            var playerHPCont = playerHP.text();
-            var playerAPCont = playerAP.text(); 
-            var $enemyChosen = $(".enemy-chosen");   
-
-            if (enemyHPCont >= 0 && playerHPCont >= 0) {
-                //enemy-chosen HP loses points
-                enemyHP.text(enemyHPCont - playerAPCont);
-                //counterattack popup
-                //player loses HP
-                playerHP.text(playerHPCont - enemyAPCont);
-                //player AP increases by base
-                incrementor.push(playerAPCont);         
-                playerAP.text(+playerAPCont + +incrementor[0]);
-
-            } else if(playerHPCont <= 0) {
+        if (gamePlaying) {               
+            //check if lost, won, or tie first, so that upon attack, immediate win or lose, rather than lag of one round                   
+            if((playerHPCont <= enemyAPCont) || playerHPCont === 0){   
                 $("#winlose").text("You lose! Try again.");
-                setup.delayInit();                 
-            } else {
-                $enemyChosen.appendTo("#restZone");
-                $enemyChosen.removeClass("enemy-chosen");  
+                setup.delayInit();                             
+            } else if((enemyHPCont <= playerAPCont) || enemyHPCont === 0){        
+                $(".enemy-chosen").appendTo("#restZone");
+                $(".enemy-chosen").removeClass("enemy-chosen");  
                 enemyNo++ ;
                 gamePlaying = false;
+                //check if all enemies defeated
                 if ($(".HP").length === enemyNo){
                    $("#winlose").text("You win!");
                    setup.delayInit();       
                 };                       
+            } else if((playerHPCont <= enemyAPCont) && (enemyHPCont <= playerAPCont)){  
+                $("#winlose").text("It's a tie! Try again.");
+                setup.delayInit(); 
+            } else {
+            //enemy-chosen HP loses points + update UI
+            enemyHPCont -= playerAPCont;
+            $(".enemy-chosen .HP").text(enemyHPCont);  
+
+            //player loses HP + update UI
+            playerHPCont -= enemyAPCont;
+            $(".activePlayer .HP").text(playerHPCont);
+
+            //player AP increases by base + update UI
+            incrementor.push(playerAPCont);                
+            playerAPCont = playerAPCont + incrementor[0];     
+            $(".activePlayer .AP").text(playerAPCont);   
             }
         }
     });
