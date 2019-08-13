@@ -11,6 +11,7 @@ var DOM = {
     $ready: $("#ready"),
     $playBtn: $(".play"),
     $playPop: $("#play"),  
+    $whatsNext: $(".whatsNext")
 };
 
 var setup = {
@@ -45,7 +46,7 @@ var setup = {
   
 //Instruction popups
     DOM.$imgCont.on("mouseenter", function(){    
-        if (!selection) {
+        if(!selection) {
             DOM.$playerPop.css({"visibility": "visible"});    
         } else if(!gamePlaying) {
             DOM.$enemyPop.css({"visibility": "visible"});    
@@ -53,9 +54,9 @@ var setup = {
     });
 
     DOM.$imgCont.on("mouseleave", function(){    
-        if (!selection) {
+        if(!selection) {
             DOM.$playerPop.css({"visibility": "hidden"}); 
-        } else if (!gamePlaying) {
+        } else if(!gamePlaying) {
             DOM.$enemyPop.css({"visibility": "hidden"}); 
         };          
     });
@@ -67,6 +68,30 @@ var setup = {
     DOM.$playBtn.on("mouseleave", function(){         
             DOM.$playPop.css({"visibility": "hidden"});      
     });
+
+    //what's next button instructions for mobile devices
+    DOM.$whatsNext.on("click", function(){
+        if(!selection) {
+            //display player popup for 2 seconds  
+            DOM.$playerPop.css({"visibility": "visible"})          
+                setTimeout(function(){
+                    DOM.$playerPop.css({"visibility": "hidden"});
+                }, 1500);
+        } else if(!gamePlaying) {
+            //display enemy popup for 2 seconds
+            DOM.$enemyPop.css({"visibility": "visible"})          
+                setTimeout(function(){
+                    DOM.$enemyPop.css({"visibility": "hidden"});
+                }, 1500);
+        } else {
+            //display play popup
+            DOM.$playPop.css({"visibility": "visible"})          
+                setTimeout(function(){
+                    DOM.$playPop.css({"visibility": "hidden"});
+                }, 3000);
+        }        
+    });
+
         
 // Event listeners
     // choose player, move player to attack zone
