@@ -13,7 +13,7 @@
 body{
     background-image: url("../images/batthern.png");
     color: #383838;        
-    font-size: 0.75em; 
+    font-size: 1em; 
     font-family: Georgia, 'Times New Roman', Times, serif;    
  }
 
@@ -24,7 +24,7 @@ h1 {
 }
 
 h2 {
-    font-size:  1.5em;
+    font-size:  2em;
     font-family: 'Permanent Marker', cursive;   
 }
 
@@ -40,15 +40,16 @@ img {
     color: #383838;      
 }
 
-.image-container {    
-    /* width: 20%; */
+.image-container { 
     margin: 2px;
+    cursor: pointer;
 }
 
 .HP, .AP, .CAP {
     text-align: center;   
     padding-left: 5px;   
     font-family: 'Permanent Marker', cursive;    
+    font-size: 2.5em;
 }
 
 .activePlayer {
@@ -64,14 +65,13 @@ img {
 }
 
 .attack {
-    font-size: 2em;       
+    font-size: 1em;   
 }
 .play, .attack, .whatsNext {
     font-family: 'Permanent Marker', cursive;
 }
 
-.whatsNext {
-   
+.whatsNext {   
     font-size: 0.75em;
     margin-top: 1%;
 }
