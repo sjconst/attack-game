@@ -16,7 +16,7 @@ To view this live on your browser, go to https://sjconst.github.io/attack-game. 
 
 ## Authors
 
-* **Stephanie Lake** - *Initial work* - (https://github.com/sjconst)
+* **Stephanie Lake** [Github] (https://github.com/sjconst) [Portfolio] (https://www.stephanielake.io)
 
 ## Acknowledgments
 
