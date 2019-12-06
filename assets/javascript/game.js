@@ -3,7 +3,6 @@ $(document).ready(function() {
 
 //Global variables, setup objects
 var incrementor, gamePlaying, selection, enemyNo, enemyHPCont, enemyAPCont, playerAPCont, playerHPCont; 
-
 var DOM = {   
     $imgCont: $(".image-container"),
     $enemyPop: $("#enemyPop"),
@@ -13,7 +12,6 @@ var DOM = {
     $playPop: $("#play"),  
     $whatsNext: $(".whatsNext")
 };
-
 var setup = {
     init: function() {
             gamePlaying = false;
@@ -42,8 +40,7 @@ var setup = {
                 playerHPCont = parseInt($(".activePlayer .HP").text());
                 playerAPCont = parseInt($(".activePlayer .AP").text()); 
                 }
-};
-  
+};  
 //Instruction popups
     DOM.$imgCont.on("mouseenter", function(){    
         if(!selection) {
@@ -52,7 +49,6 @@ var setup = {
             DOM.$enemyPop.css({"visibility": "visible"});    
         };     
     });
-
     DOM.$imgCont.on("mouseleave", function(){    
         if(!selection) {
             DOM.$playerPop.css({"visibility": "hidden"}); 
@@ -60,7 +56,6 @@ var setup = {
             DOM.$enemyPop.css({"visibility": "hidden"}); 
         };          
     });
-
     DOM.$playBtn.on("mouseenter", function(){    
            DOM.$playPop.css({"visibility": "visible"}); 
     });
@@ -68,7 +63,6 @@ var setup = {
     DOM.$playBtn.on("mouseleave", function(){         
             DOM.$playPop.css({"visibility": "hidden"});      
     });
-
     //what's next button instructions for mobile devices
     DOM.$whatsNext.on("click", function(){
         if(!selection) {
@@ -90,9 +84,7 @@ var setup = {
                     DOM.$playPop.css({"visibility": "hidden"});
                 }, 3000);
         }        
-    });
-
-        
+    });        
 // Event listeners
     // choose player, move player to attack zone
     DOM.$imgCont.on("click", function(){
@@ -105,7 +97,6 @@ var setup = {
             selection = true;       
             }
         });    
-
     //Choose enemy, move enemy to attack zone, change attack power to counter attack power, set values for battling variables
     DOM.$imgCont.on("click", function(){
         if(!gamePlaying && $(this).hasClass("enemy")){        
@@ -118,7 +109,6 @@ var setup = {
             setup.getValues();         
         } 
     });
-
     // * Whenever the player clicks `attack`, the game begins. 
     $(".btn-new").on("click", function(){
         if (gamePlaying) {               
@@ -155,8 +145,6 @@ var setup = {
             }
         }
     });
-
 // start game
 setup.init();
-
-  });
+});
