@@ -1,6 +1,6 @@
 # Stephanie's attack game
 
-Pick a character and then try to fight off the others! Watch out for your health points, or the game is over.
+This JavaScrript game uses logic and sequencing. Pick a character and then try to fight off the others! Watch out for your health points, or the game is over.
 
 ![attackGame](https://user-images.githubusercontent.com/42453320/65470847-c0b6c000-de21-11e9-88c9-3d80dedcb70d.JPG)
 
