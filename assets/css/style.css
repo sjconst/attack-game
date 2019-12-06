@@ -5,83 +5,65 @@
     Gray #383838
  
 */
-
-
 /* GLobal styles
 --------------------*/
-
 body{
     background-image: url("../images/batthern.png");
     color: #383838;        
     font-size: 1em; 
     font-family: Georgia, 'Times New Roman', Times, serif;    
  }
-
-
 h1 {
     font-family: 'Permanent Marker', cursive;
     font-size: 2.5em;
 }
-
 h2 {
     font-size:  2em;
     font-family: 'Permanent Marker', cursive;   
 }
-
 /* Main body styles
 --------------------*/
-
 img {    
     width: 60px;
     height: auto;
 }
-
 .image-tag {  
     color: #383838;      
 }
-
 .image-container { 
     margin: 2px;
     cursor: pointer;
 }
-
 .HP, .AP, .CAP {
     text-align: center;   
     padding-left: 5px;   
     font-family: 'Permanent Marker', cursive;    
     font-size: 2.5em;
 }
-
 .activePlayer {
      background-color: rgba(127, 202, 172, 0.3);
 } 
-
 .enemy {
     background-color: rgba(167, 86, 20, 0.3);
 }
-
 .enemy-chosen {
     background-color: rgba(167, 86, 20, 0.3);   
 }
-
 .attack {
     font-size: 1em;   
 }
 .play, .attack, .whatsNext {
     font-family: 'Permanent Marker', cursive;
 }
-
 .whatsNext {   
     font-size: 0.75em;
     margin-top: 1%;
 }
-
 .play {
     height: 5%;
     margin-top: 5%;
     font-size: 0.75em;
 }
-
 #play {
     position: absolute;
     background: rgba(127, 202, 172, 0.90);
@@ -92,7 +74,6 @@ img {
     padding-top: 15px;
     visibility: hidden;
 }
-
 .popup-overlay {
     width: 20%;
     background-color: #7FCAAC;
@@ -101,35 +82,28 @@ img {
     visibility: hidden;
     position: absolute;  
 }
-
 .popup-content {
     text-align: center;
     padding-bottom: 10px;
 }
-
 #attackZone {
     background-color: #F3BF2A;
     margin-top: 5px;
     padding-bottom: 10px;
 }
-
 .selectionZone {
     background-color: rgba(255, 255, 255, 0.5);
 }
-
 #attackZone .col {
     padding-right: 0px;    
     width: 90%;    
 }
-
 #restZone .col {
     width: 60%;    
 }
-
 #restZone {
     background-color: rgba(255, 255, 255, 0.5);
 }
-
 #winlose {
     color: #7FCAAC;
     font-size: 5em;
@@ -139,7 +113,6 @@ img {
     left: 30%;
     z-index: 2;
 }
-
 /* Footer styles
 --------------------*/
 footer {
@@ -151,10 +124,8 @@ footer {
     height: 5%;
     padding-bottom: 5px;
 }
-
 /* larger screens
 --------------------*/
-
 @media only screen and (min-width: 1400px) {
     .popup-overlay {
         margin-left: 20%; 
