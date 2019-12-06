@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100">
-
 <head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
@@ -13,10 +12,7 @@
     <!--// author stylesheet-->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body class="d-flex flex-column h-100">
-  
-<!-- // Header -->
     <header class="container">
         <div class="row">
             <h1 class="col">Fruit attack</h1>      
@@ -27,11 +23,8 @@
             <p> Select a player then select an enemy to battle. Attack your opponent by clicking on the attack button, and watch its health points drop by your attack power. <br>Watch out! Your opponent immediately counter attacks. Your attack power increases each round, so fight wisely!<br> Once you've defeated an opponent, select a new adversary and let the battling continue.</p>  
         </div>                
     </header>
-
-<!-- // Main section -->
 <main class="flex-shrink-0 container ">     
     <div id="winlose"></div>
-
     <!-- // selection zone -->
     <h2>Selection Zone</h2>    
     <section class="row selectionZone" id="allFruits">  
@@ -75,10 +68,8 @@
                 </div>                
             </div>                   
     </section> 
-
     <!-- // display popups on mobile devices -->
     <button class="col-xs-2 whatsNext ">What next?</button> 
-
     <!-- // select enemy popup -->
     <section id="enemyPop" class="popup-overlay"> 
         <div class="popup-content"> 
@@ -86,7 +77,6 @@
             <p> Select an enemy to battle.</p>  
         </div>
     </section>  
-
     <!-- // select player popup -->    
     <section id="playerPop" class="popup-overlay"> 
         <div class="popup-content"> 
@@ -94,7 +84,6 @@
             <p> Select a player.</p>  
         </div>
     </section>      
-
     <!-- // attack zone -->
     <section class="container" id="attackZone">
             <h2>Attack Zone</h2> 
@@ -112,7 +101,6 @@
             <button class="btn-new col-xs-6 attack"><i class="ion-ios-plus-outline"></i>Attack</button>  
         </div>  
     </section>     
-
     <!-- // rest zone -->
     <section class="container" >
         <h2>Graveyard</h2> 
@@ -120,18 +108,13 @@
             <div id="restZone"></div>    
         </div>
     </section>
-
 </main>
-
-<!-- // Footer -->
 <footer class="mt-auto">
     <p>Copyright &copy</p>
 </footer>
-
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="assets/javascript/game.js"></script>
-
 </body>
 </html>
